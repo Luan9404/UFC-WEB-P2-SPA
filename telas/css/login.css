@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,600;1,400&display=swap');
+
+body{
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;    
+}
+
+#DivMain{
+    width: 100vw;
+    height: 100vh;
+    background: #201b2c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#DivEsquerda{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#DivEsquerda > h1{
+    color: #A000FF;
+    font-size: 3vw;
+}
+
+#DivDireita{
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#AreaDeLogin{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background: #2f2841;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #00000056;
+}
+
+#Formulario > h1{
+    color: #A000FF;
+    font-weight: 800;
+    margin: 0;
+}
+
+#Formulario{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 10px 0px;
+}
+
+#Formulario > input{
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    background:  #514869;
+    color: #fff;
+    font-size: 12pt;
+    box-shadow: 0px 10px 40px #00000056;
+    outline: none;
+    box-sizing: border-box;
+}
+
+#Formulario > label{
+    color: #fff;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#Formulario > input::placeholder{
+    color: #f0ffff94;
+}
+
+.btnLogin{
+    width: 100%;
+    padding: 16px 0px;
+    margin: 25px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    text-transform: uppercase;
+    background-color: #A000FF;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #2b134b;
+    cursor: pointer;
+}
+
+.btnLogin:hover {
+    background-color: #58008b;
+}
+
+.imagem{
+    width: 35vw;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+@media only screen and(max-width: 950px){
+    #AreaDeLogin{
+        width: 85%;
+    }
+}
