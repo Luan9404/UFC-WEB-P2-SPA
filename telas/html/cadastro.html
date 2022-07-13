@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/cadastro.css">
+
+    <title>Formulário de Cadastro</title>
+</head>
+<body>
+    <div id="DivPrincipal">
+        
+        <div class="ImagemDeCadastro">
+        
+            <img src="../img/imagemTelaCadastro.svg">
+        
+        </div>
+
+        <div class="form">
+
+            <form action="#">
+ 
+                <div class="formHeader">
+
+                    <div class="titulo">
+                        <h1>Cadastre-se</h1>
+                    </div>
+
+                    <div class="imagemCamera">
+                        <img src="../img/imagemTelaCadatroCamera.svg">
+                    </div>
+
+                </div>
+
+                <div class="inputGroup">
+
+                    <div class="inputBox">
+
+                        <label for="primeiroNome">Primeiro Nome</label>
+                        <input id="primeiroNome" type="text" name="primeiroNome" placeholder="Digite seu primeiro nome" required>
+
+                    </div>
+
+                    <div class="inputBox">
+
+                        <label for="sobrenome">Sobrenome</label>
+                        <input id="sobrenome" type="text" name="sobrenome" placeholder="Digite seu sobrenome" required>
+
+                    </div>
+
+                    <div class="inputBox">
+
+                        <label for="email">E-mail</label>
+                        <input id="email" type="text" name="email" placeholder="Digite seu email" required>
+
+                    </div>
+
+                    <div class="inputBox">
+
+                        <label for="celular">Celular</label>
+                        <input id="celular" type="tel" name="celular" placeholder="(xx) xxxx-xxxx" required>
+
+                    </div>
+
+                    <div class="inputBox">
+
+                        <label for="senha">Senha</label>
+                        <input id="senha" type="password" name="senha" placeholder="Digite sua senha" required>
+
+                    </div>
+                    
+                    <div class="inputBox">
+
+                        <label for="ConfirmarSenha">Confirme sua senha</label>
+                        <input id="ConfirmarSenha" type="password" name="ConfirmarSenha" placeholder="Confirme sua senha" required>
+
+                    </div>
+
+                    <div class="generos">
+
+                        <h6>Gêneros</h6>
+                        <div class="tipoDeGenero">
+                            <input type="radio" id="feminino" name="genero">
+                            <label for="feminino">Feminino</label>
+
+                        </div>
+                        
+                        <div class="tipoDeGenero">
+                            <input type="radio" id="masculino" name="genero">
+                            <label for="masculino">Masculino</label>
+
+                        </div>
+                        
+                        <div class="tipoDeGenero">
+                            <input type="radio" id="outros" name="genero">
+                            <label for="outros">Outros</label>
+
+                        </div>
+                        
+                        <div class="tipoDeGenero">
+                            <input type="radio" id="ninformar" name="genero">
+                            <label for="ninformar">Não informar</label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="btnCadastro">
+                    <button><a href="home.html">Cadastrar</a></button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</body>
+</html>
