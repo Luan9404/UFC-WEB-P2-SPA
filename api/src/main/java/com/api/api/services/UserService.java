@@ -1,9 +1,8 @@
 package com.api.api.services;
 
-import java.util.Optional;
-
 import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -12,18 +11,28 @@ import com.api.api.repositories.UserRepository;
 
 @Service
 public class UserService {
-  final UserRepository userRepository;
-
-  public UserService(UserRepository userRepository) {
+  private final UserRepository userRepository;
+  private final PasswordEncoder encoder;
+  public UserService(UserRepository userRepository, PasswordEncoder encoder) {
     this.userRepository = userRepository;
+    this.encoder = encoder;
   }
 
   public Iterable<UserModel> getAll(){
     return userRepository.findAll();
   }
 
-  public Optional<UserModel> getById(long id){
-    return userRepository.findById(id);
+  public UserModel getById(long id){
+    return userRepository.findById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+  }
+
+  public UserModel getByPhoneNumber(String phoneNumber){
+    return userRepository.findByPhoneNumber(phoneNumber);
+  }
+  
+  public UserModel save(UserModel user){
+    user.setPassword(encoder.encode(user.getPassword()));
+    return userRepository.save(user);
   }
 
   public UserModel update(UserModel newUserData){

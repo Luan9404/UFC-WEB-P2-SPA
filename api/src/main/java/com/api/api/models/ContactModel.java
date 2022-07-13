@@ -13,6 +13,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+
 @Entity
 @Table(name = "contacts")
 public class ContactModel implements Serializable{
@@ -21,17 +25,31 @@ public class ContactModel implements Serializable{
   private long id;
 
   @Column(nullable = false)
-  private long contactOf;
-
-  @Column(nullable = false)
   private String name;
-
+  
+  @JsonManagedReference(value = "messages")
   @OneToMany(mappedBy = "contactId")
   private List<MessageModel> messages = new ArrayList<MessageModel>();
 
+  @JsonBackReference(value = "contacts")
   @ManyToOne
   @JoinColumn(name = "userId")
   private UserModel userId;
+
+  @JsonBackReference(value = "contactOf")
+  @ManyToOne
+  @JoinColumn(name = "contactUserId")
+  private UserModel contactUserId;
+  
+  public ContactModel() {
+  }
+
+  public ContactModel(String name, UserModel userId, UserModel contactUserId) {
+    this.name = name;
+    this.userId = userId;
+    this.contactUserId = contactUserId;
+  }
+
 
   public long getId() {
     return id;
@@ -40,15 +58,7 @@ public class ContactModel implements Serializable{
   public void setId(long id) {
     this.id = id;
   }
-
-  public long getContactOf() {
-    return contactOf;
-  }
-
-  public void setContactOf(long contactOf) {
-    this.contactOf = contactOf;
-  }
-
+  
   public String getName() {
     return name;
   }
@@ -64,4 +74,22 @@ public class ContactModel implements Serializable{
   public void setMessages(List<MessageModel> messages) {
     this.messages = messages;
   }
+
+  public UserModel getUserId() {
+    return userId;
+  }
+
+  public void setUserId(UserModel userId) {
+    this.userId = userId;
+  }
+
+  public UserModel getContactUserId() {
+    return contactUserId;
+  }
+
+  public void setContactUserId(UserModel contactUserId) {
+    this.contactUserId = contactUserId;
+  }
+
+  
 }

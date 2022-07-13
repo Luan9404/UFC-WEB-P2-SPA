@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.*;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "User")
 public class UserModel implements Serializable{
@@ -23,10 +25,25 @@ public class UserModel implements Serializable{
 
   @Column(nullable = false)
   private String password;
+  
+  @Column(nullable = false)
+  private String phoneNumber;
 
+  @Column(nullable = true)
+  private String picUrl;
+
+  @JsonManagedReference(value = "contacts")
   @OneToMany(mappedBy = "userId")
   private List<ContactModel> contacts = new ArrayList<ContactModel>();
-
+ 
+  @JsonManagedReference(value = "contactOf")
+  @OneToMany(mappedBy = "contactUserId")
+  private List<ContactModel> contactOn = new ArrayList<ContactModel>();
+  
+  @JsonManagedReference(value="sendMessages")
+  @OneToMany(mappedBy = "sendingUserId")
+  private List<MessageModel> sendedMessages = new ArrayList<MessageModel>();
+  
   public long getId() {
     return id;
   }
@@ -67,4 +84,35 @@ public class UserModel implements Serializable{
     this.contacts = contacts;
   }
 
+  public String getPhoneNumber() {
+    return phoneNumber;
+  }
+
+  public void setPhoneNumber(String phoneNumber) {
+    this.phoneNumber = phoneNumber;
+  }
+
+  public String getPicUrl() {
+    return picUrl;
+  }
+
+  public void setPicUrl(String picUrl) {
+    this.picUrl = picUrl;
+  }
+
+  public List<ContactModel> getContactOn() {
+    return contactOn;
+  }
+
+  public void setContactOn(List<ContactModel> contactOn) {
+    this.contactOn = contactOn;
+  }
+
+  public List<MessageModel> getSendedMessages() {
+    return sendedMessages;
+  }
+
+  public void setSendedMessages(List<MessageModel> sendedMessages) {
+    this.sendedMessages = sendedMessages;
+  }
 }
