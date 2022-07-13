@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.8/angular-route.min.js"></script>
+    <script src="HowToMakeMarihuanaWithJSAndMaizena.js"></script>
+    
+    <title>Tela de Login</title>
+</head>
+<body ng-app="HowToMakeMarihuanaWithJSAndMaizena.js">
+
+    <div id="DivMain" ng-view>
+        
+        <div id="DivEsquerda">
+            <h1>Whats App 2</h1>
+            <img src="../img/imagemTelaLogin.svg" class="imagem" alt="teste">
+        </div>
+        <div id="DivDireita">
+            <div id="AreaDeLogin">
+                
+                <div id="Formulario">
+                    <h1>LOGIN</h1>
+                    
+                    <label for="usuario">Usuário</label>
+                    <input type="text" name="usuario" placeholder="Usuário">
+                    
+                    <label for="senha">Senha</label>
+                    <input type="password" name="senha" placeholder="Senha">
+                </div>
+
+                <button class="btnLogin"><a href="home.html">Login</a></button>
+
+                <a href="cadastro.html">Possui uma conta? Clique aqui para entrar.</a>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+</html>
