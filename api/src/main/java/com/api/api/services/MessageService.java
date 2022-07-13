@@ -53,6 +53,10 @@ public class MessageService {
     return messageRepository.save(message);
   }
 
+  public Iterable<MessageModel> getContactMessages(long contactId){
+    return messageRepository.getContactMessages(contactId);
+  }
+  
   public void delete(long id){
     messageRepository.deleteById(id);
   }

@@ -55,7 +55,7 @@ public class UserController {
   ){
       return contactService.addContact(userId, contactRequest); 
   }
-  @GetMapping("/token")
+  @GetMapping("/login")
     public String token(Authentication authentication) {
         Instant now = Instant.now();
         long expiry = 36000L;

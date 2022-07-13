@@ -2,6 +2,7 @@ package com.api.api.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -37,5 +38,12 @@ public class MessageController {
     Iterable<MessageModel> messages = messageService.getAll();
 
     return ResponseEntity.status(HttpStatus.OK).body(new ResponseModel(true, messages));
+  }
+
+  @GetMapping("/getMessages/{id}")
+  public ResponseEntity<Iterable<MessageModel>> getMessages(@PathVariable(name = "id") long contactId){
+    Iterable<MessageModel> messages = messageService.getContactMessages(contactId);
+
+    return ResponseEntity.ok(messages);
   }
 }
